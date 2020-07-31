@@ -1,2 +1,2 @@
 -image image
--waves wave.vcd.gz
+-waves wave.vcd

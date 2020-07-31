@@ -22,7 +22,8 @@
                     {
                         "name": "base-test",
                         "cmd": "dsim -F waveform-sample/scripts/run.f",
-                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f"
+                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f",
+                        "isPass": [""]
                     }
                 ]
             }
