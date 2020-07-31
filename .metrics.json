@@ -6,7 +6,7 @@
                 "name": "waveform-sample-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F waveform-sample/scripts/build.f",
-                "wavesCmd": "dsim -F waveform-sample/scripts/build.f"
+                "wavesCmd": "dsim -F waveform-sample/scripts/build-debug.f"
             }
         ]
     },
