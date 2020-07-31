@@ -1,3 +1,3 @@
-src/sub.v
-src/top.v
+../src/sub.v
+../src/top.v
 -genimage image
