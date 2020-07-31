@@ -1,0 +1,31 @@
+{
+    "builds": {
+        "list": [
+            {
+                "cpu": "1",
+                "name": "waveform-sample-build",
+                "image": "dsim-toolchain:latest",
+                "cmd": "dsim -F waveform-sample/scripts/build.f",
+                "wavesCmd": "dsim -F waveform-sample/scripts/build.f"
+            }
+        ]
+    },
+    "regressions": [
+        {
+            "name": "base",
+            "description": "Basic Regression",
+            "tests": {
+                "resultsDir": "<rootDir>",
+                "cpu": "1",
+                "build": "waveform-sample-build",
+                "list": [
+                    {
+                        "name": "base-test",
+                        "cmd": "dsim -F waveform-sample/scripts/run.f",
+                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f"
+                    }
+                ]
+            }
+        }
+    ]
+}

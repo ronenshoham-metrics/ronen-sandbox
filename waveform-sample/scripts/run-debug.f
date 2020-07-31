@@ -1,0 +1,2 @@
+-image image
+-waves wave.vcd.gz
