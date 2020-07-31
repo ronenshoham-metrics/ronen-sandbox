@@ -10,10 +10,18 @@ module top;
 
 
     initial 
-    begin : CLOCKS
+    begin : FAST_CLOCK
         fast_clk = 0; medium_clk = 0; slow_clk = 0;
         forever fast_clk = #5 ~fast_clk;
+    end  
+    
+    initial 
+    begin : MEDIUM_CLOCK
         forever medium_clk = #500 ~medium_clk;
+    end
+
+    initial 
+    begin : SLOW_CLOCK
         forever slow_clk = #5000 ~slow_clk;
     end
 
