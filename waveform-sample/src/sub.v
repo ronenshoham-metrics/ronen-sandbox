@@ -17,18 +17,16 @@ reg [7:0] byte_full=8'h0;
 reg [7:0] byte_full_reset;
 
 
-reg [31:0] random = 32'h0;
-reg [31:0] counter  = 32'h0;
-reg [31:0] counter_reverse  = 32'h0;
+reg [31:0] dword_random = 32'h0;
+reg [31:0] dword_random_reset;
+reg [31:0] dword_counter  = 32'h0;
+reg [31:0] dword_counter_reverse  = 32'hFFFF;
+reg [31:0] dword_full = 32'h0;
+reg [31:0] dword_full_reset;
+
 
 initial
     #($urandom_range(100,1000)*1ns) reset <= 0;
-
-always @(posedge clk)
-    begin : COUNTERS
-        counter <= counter+1;
-        counter_reverse <= counter_reverse -1;
-    end
 
 always @(posedge clk)
     begin : BITS
@@ -52,6 +50,19 @@ always @(posedge clk)
         begin
             byte_random_reset <= $random();
             byte_full_reset <= random_byte_four_values();
+        end
+    end
+
+always @(posedge clk)
+    begin : DWORD
+        dword_random <= $random();
+        dword_counter <= dword_counter+1;
+        dword_counter_reverse <= dword_counter_reverse -1;
+        dword_full <= random_dword_four_values();
+        if (!reset) 
+        begin
+            dword_random_reset <= $random();
+            dword_full_reset <= random_dword_four_values();
         end
     end
 
@@ -82,17 +93,29 @@ function [3:0] random_nible_x_and_z;
     endcase
 endfunction
 
-function random_byte_x_and_z;
-    random_byte_x_and_z = {random_nible_x_and_z(), random_nible_x_and_z()};
+function [7:0] random_byte_x_and_z;
+    case ($urandom_range(0,9))
+        0 : random_byte_x_and_z = 8'hxx; //Full X
+        1 : random_byte_x_and_z = 8'hzz; // Full Z
+        default : random_byte_x_and_z = {random_nible_x_and_z(), random_nible_x_and_z()};
+    endcase
+    
 endfunction
 
-function [3:0] random_byte_four_values;
-    reg [2:0] data = $random();
-    case ($urandom_range(0,10))
-        0 : random_byte_four_values = 4'hx; //Full X
+function [7:0] random_byte_four_values;
+    case ($urandom_range(0,9))
+        0 : random_byte_four_values = random_byte_x_and_z();
         default: random_byte_four_values = $random();
     endcase
 endfunction
 
+function [31:0] random_dword_four_values;
+    case ($urandom_range(0,19))
+        0 : random_dword_four_values = 32'hxxxx;
+        1 : random_dword_four_values = 32'hzzzz;
+        2,3,4,5 : random_dword_four_values = {random_byte_four_values(),random_byte_four_values(),random_byte_four_values(),random_byte_four_values()};
+        default: random_dword_four_values = $random();
+    endcase
+endfunction
 
 endmodule
