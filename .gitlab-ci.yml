@@ -4,8 +4,8 @@ stages:
 base_regression:
    stage: test
    script:
-      - echo METRICS_ACCESS_TOKEN
-      - curl -H 'Private-Token:'METRICS_ACCESS_TOKEN
+      - echo $METRICS_ACCESS_TOKEN
+      - curl -H 'Private-Token:'$METRICS_ACCESS_TOKEN
              -H 'Content-Type:application/json' 
              -d '{"projectId":"ronen.shoham-ronen_sandbox", "regressionName":"base", 
              "branch":"'$CI_COMMIT_REF_NAME'"}' 
