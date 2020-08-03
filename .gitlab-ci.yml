@@ -4,9 +4,9 @@ stages:
 base_regression:
    stage: test
    script:
-      - echo $METRICS_CI_SERVICE
-      - curl -H 'Private-Token:'$METRICS_CI_SERVICE
+      - echo METRICS_ACCESS_TOKEN
+      - curl -H 'Private-Token:'METRICS_ACCESS_TOKEN
              -H 'Content-Type:application/json' 
              -d '{"projectId":"ronen.shoham-ronen_sandbox", "regressionName":"base", 
              "branch":"'$CI_COMMIT_REF_NAME'"}' 
-             -X POST 'https://'$CLIENT_ID'.metrics.ca/api/jobs/v1/runRegression'
+             -X POST 'https://nightly.metrics.ca/api/jobs/v1/runRegression'
