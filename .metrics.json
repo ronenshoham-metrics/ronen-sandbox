@@ -5,7 +5,7 @@
                 "cpu": "1",
                 "name": "waveform-sample-build",
                 "image": "dsim-toolchain:latest",
-                "cmd": "dsim -F waveform-sample/scripts/build.f",
+                "cmd": "dsim -F waveform-sample/scripts/build-debug.f",
                 "wavesCmd": "dsim -F waveform-sample/scripts/build-debug.f"
             }
         ]
@@ -21,7 +21,7 @@
                 "list": [
                     {
                         "name": "base-test",
-                        "cmd": "dsim -F waveform-sample/scripts/run.f",
+                        "cmd": "dsim -F waveform-sample/scripts/run-debug.f",
                         "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f",
                         "isPass": [""]
                     }
