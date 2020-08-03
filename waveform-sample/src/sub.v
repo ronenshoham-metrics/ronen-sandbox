@@ -25,13 +25,23 @@ always @(posedge clk)
 always @(posedge clk)
     begin : BITS
         bit_two_values <= $random();    
+        bit_4_values <= four_values();
         if (!reset) bit_x_then_two_value <= $random();
-
     end
     
 always @(posedge clk)
     begin : BYTES
         byte_random <= $random();    
     end
+
+
+function four_values;
+    case ($urandom_range(0,3))
+        0 : four_values = 1'b0;
+        1 : four_values = 1'b1;
+        2 : four_values = 1'bx;
+        3 : four_values = 1'bz;
+    endcase
+endfunction
 
 endmodule
