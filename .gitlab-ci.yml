@@ -4,4 +4,4 @@ stages:
 base_regression:
    stage: test
    script:
-      - ./metrics_ci_ontegration.py "base" "ronen.shoham-ronen-sandbox"
+      - ./metrics_ci_integration.py "base" "ronen.shoham-ronen-sandbox"
