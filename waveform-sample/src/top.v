@@ -19,9 +19,9 @@ module top;
         fast_clk = 0; medium_clk = 0; slow_clk = 0;
         forever 
         begin
-            fast_clk = #5 ~fast_clk;
-            medium_clk = #500 ~medium_clk;
-            slow_clk = #5000 ~slow_clk;
+            fast_clk <= #5 ~fast_clk;
+            medium_clk <= #500 ~medium_clk;
+            slow_clk <= #5000 ~slow_clk;
         end
     end
 
