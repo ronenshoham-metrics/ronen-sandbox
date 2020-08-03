@@ -1,0 +1,12 @@
+stages:
+   - test
+        
+base_regression:
+   stage: test
+   script:
+      - echo $METRICS_CI_SERVICE
+      - curl -H 'Private-Token:'$METRICS_CI_SERVICE
+             -H 'Content-Type:application/json' 
+             -d '{"projectId":"ronen.shoham-ronen_sandbox", "regressionName":"base", 
+             "branch":"'$CI_COMMIT_REF_NAME'"}' 
+             -X POST 'https://'$CLIENT_ID'.metrics.ca/api/jobs/v1/runRegression'
