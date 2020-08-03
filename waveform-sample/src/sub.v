@@ -83,18 +83,21 @@ function random_bit_x_and_z;
     endcase
 endfunction
 
+function [2:0] random_3_bits;
+    random_3_bits = $random();
+endfunction
+
 function [3:0] random_nible_x_and_z;
-    reg [2:0] data = $random();
     case ($urandom_range(0,3))
         0 : random_nible_x_and_z = 4'hx; //Full X
-        1 : random_nible_x_and_z = {data,1'bx}; // Partial X
+        1 : random_nible_x_and_z = {random_3_bits(),1'bx}; // Partial X
         2 : random_nible_x_and_z = 4'hz; // Full Z
-        3 : random_nible_x_and_z = {data,1'bz}; // Partial Z
+        3 : random_nible_x_and_z = {random_3_bits(),1'bz}; // Partial Z
     endcase
 endfunction
 
 function [7:0] random_byte_x_and_z;
-    case ($urandom_range(0,9))
+    case ($urandom_range(0,5))
         0 : random_byte_x_and_z = 8'hxx; //Full X
         1 : random_byte_x_and_z = 8'hzz; // Full Z
         default : random_byte_x_and_z = {random_nible_x_and_z(), random_nible_x_and_z()};
@@ -110,7 +113,7 @@ function [7:0] random_byte_four_values;
 endfunction
 
 function [31:0] random_dword_four_values;
-    case ($urandom_range(0,19))
+    case ($urandom_range(0,9))
         0 : random_dword_four_values = 32'hxxxx;
         1 : random_dword_four_values = 32'hzzzz;
         2,3,4,5 : random_dword_four_values = {random_byte_four_values(),random_byte_four_values(),random_byte_four_values(),random_byte_four_values()};
