@@ -46,7 +46,6 @@ always @(posedge clk)
         byte_random <= $random();   
         byte_special <= random_byte_x_and_z();
         byte_full <= random_byte_four_values();
-        $display ("[",$time,"] %m: byte_full =8'b%8b", byte_full);
         if (!reset) 
         begin
             byte_random_reset <= $random();
@@ -60,7 +59,6 @@ always @(posedge clk)
         dword_counter <= dword_counter+1;
         dword_counter_reverse <= dword_counter_reverse -1;
         dword_full <= random_dword_four_values();
-        //$display ("[",$time,"] %m: dword_full =32'b%32b", dword_full);
         if (!reset) 
         begin
             dword_random_reset <= $random();
@@ -68,6 +66,11 @@ always @(posedge clk)
         end
     end
 
+always @(negedge clk)
+    begin : DISPLAYS
+        $display ("[",$time,"] %m: byte_full =8'b%8b", byte_full);
+        //$display ("[",$time,"] %m: dword_full =32'b%32b", dword_full);
+    end
 
 function random_bit_four_values;
     case ($urandom_range(0,3))
