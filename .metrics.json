@@ -29,13 +29,13 @@
                         "name": "waveform-test",
                         "build": "waveform-sample-build",
                         "cmd": "dsim -F waveform-sample/scripts/run.f",
-                        "wavesCmd": "dsim -F logfilr/scripts/run-debug.f",
+                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f",
                         "isPass": [""]
                     },
                     {
                         "name": "logfile-test",
                         "build": "logfile-build",
-                        "cmd": "dsim -F waveform-sample/scripts/run.f",
+                        "cmd": "dsim -F logfile/scripts/run.f",
                         "wavesCmd": "dsim -F logfile/scripts/run-debug.f",
                         "isPass": [""]
                     }
