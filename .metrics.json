@@ -7,6 +7,13 @@
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F waveform-sample/scripts/build.f",
                 "wavesCmd": "dsim -F waveform-sample/scripts/build-debug.f"
+            },
+            {
+                "cpu": "1",
+                "name": "logfile-build",
+                "image": "dsim-toolchain:latest",
+                "cmd": "dsim -F logfile/scripts/build.f",
+                "wavesCmd": "dsim -F logfile/scripts/build-debug.f"
             }
         ]
     },
@@ -17,12 +24,19 @@
             "tests": {
                 "resultsDir": "<rootDir>",
                 "cpu": "1",
-                "build": "waveform-sample-build",
                 "list": [
                     {
-                        "name": "base-test",
+                        "name": "waveform-test",
+                        "build": "waveform-sample-build",
                         "cmd": "dsim -F waveform-sample/scripts/run.f",
-                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f",
+                        "wavesCmd": "dsim -F logfilr/scripts/run-debug.f",
+                        "isPass": [""]
+                    },
+                    {
+                        "name": "logfile-test",
+                        "build": "logfile-build",
+                        "cmd": "dsim -F waveform-sample/scripts/run.f",
+                        "wavesCmd": "dsim -F logfile/scripts/run-debug.f",
                         "isPass": [""]
                     }
                 ]

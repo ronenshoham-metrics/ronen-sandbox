@@ -1,0 +1,2 @@
+-image image
+-waves waves.vcd
