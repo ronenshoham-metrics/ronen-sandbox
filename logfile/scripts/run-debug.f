@@ -1,2 +1,2 @@
--image image
+-F run-debug.f
 -waves waves.vcd
