@@ -40,6 +40,7 @@ getRegressionRunInfo = '/api/v1/projects/'+args.projectId+'/regressionRuns/'
 reqParams = {}
 reqParams['regressionName'] = args.regressionName
 reqParams['branch'] = str(os.environ['CI_COMMIT_REF_NAME'])
+reqParams['withWaves'] = 'true'
 params = json.dumps(reqParams)
 
 response, regressionData = make_http_request('POST', postRegression, params) 
