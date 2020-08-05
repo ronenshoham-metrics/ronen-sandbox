@@ -3,10 +3,10 @@
         "list": [
             {
                 "cpu": "1",
-                "name": "waveform-sample-build",
+                "name": "waveform-build",
                 "image": "dsim-toolchain:latest",
-                "cmd": "dsim -F waveform-sample/scripts/build.f",
-                "wavesCmd": "dsim -F waveform-sample/scripts/build-debug.f"
+                "cmd": "dsim -F waveform/scripts/build.f",
+                "wavesCmd": "dsim -F waveform/scripts/build-debug.f"
             },
             {
                 "cpu": "1",
@@ -27,9 +27,9 @@
                 "list": [
                     {
                         "name": "waveform-test",
-                        "build": "waveform-sample-build",
-                        "cmd": "dsim -F waveform-sample/scripts/run.f",
-                        "wavesCmd": "dsim -F waveform-sample/scripts/run-debug.f",
+                        "build": "waveform-build",
+                        "cmd": "dsim -F waveform/scripts/run.f",
+                        "wavesCmd": "dsim -F waveform/scripts/run-debug.f",
                         "isPass": [""]
                     },
                     {
