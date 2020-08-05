@@ -1,2 +1,2 @@
--F run-debug.f
+-F run.f
 -waves waves.vcd
