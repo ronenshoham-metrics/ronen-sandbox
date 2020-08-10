@@ -24,6 +24,7 @@
             "tests": {
                 "resultsDir": "<rootDir>",
                 "cpu": "1",
+                "logfile": "dsim.log",
                 "list": [
                     {
                         "name": "waveform-test",
