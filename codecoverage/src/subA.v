@@ -6,7 +6,7 @@ output out_bit1;
 
 reg out_bit1;
 
-reg reg_bit1, reg_bit2, reg_bit3, reg_bit4;
+wire reg_bit1, reg_bit2, reg_bit3, reg_bit4;
 reg [7:0] reg_byte1, reg_byte2, reg_byte3, reg_byte4;
 
 assign reg_bit1 = in_bit1;
