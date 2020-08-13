@@ -28,7 +28,7 @@
         {
             "name": "base",
             "description": "Basic Regression",
-            "metricsPathReplacements" : "[[ "", "" ]]", 
+            "metricsPathReplacements" : [[ "", "" ]], // Hack for code coverage showing properly 
             "tests": {
                 "resultsDir": "<rootDir>",
                 "cpu": "1",
