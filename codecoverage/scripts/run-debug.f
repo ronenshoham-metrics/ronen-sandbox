@@ -1,0 +1,2 @@
+-F run.f
+-waves waves.vcd

@@ -14,6 +14,13 @@
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F logfile/scripts/build.f",
                 "wavesCmd": "dsim -F logfile/scripts/build-debug.f"
+            },
+            {
+                "cpu": "1",
+                "name": "codecoverage-build",
+                "image": "dsim-toolchain:latest",
+                "cmd": "dsim -F codecoverage/scripts/build.f",
+                "wavesCmd": "dsim -F codecoverage/scripts/build-debug.f"
             }
         ]
     },
@@ -21,6 +28,7 @@
         {
             "name": "base",
             "description": "Basic Regression",
+            "metricsPathReplacements" : [[ "", "" ]],
             "tests": {
                 "resultsDir": "<rootDir>",
                 "cpu": "1",
@@ -38,6 +46,13 @@
                         "build": "logfile-build",
                         "cmd": "dsim -F logfile/scripts/run.f",
                         "wavesCmd": "dsim -F logfile/scripts/run-debug.f",
+                        "isPass": [""]
+                    },
+                    {
+                        "name": "codecoverage-test",
+                        "build": "codecoverage-build",
+                        "cmd": "dsim -F codecoverage/scripts/run.f",
+                        "wavesCmd": "dsim -F codecoverage/scripts/run-debug.f",
                         "isPass": [""]
                     }
                 ]
