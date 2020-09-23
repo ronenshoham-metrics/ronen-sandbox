@@ -27,7 +27,7 @@
                 "name": "functionalcoverage-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F functionalcoverage/scripts/build.f",
-                "wavesCmd": "dsim -F functioanlcoverage/scripts/build-debug.f"
+                "wavesCmd": "dsim -F functionalcoverage/scripts/build-debug.f"
             }
         ]
     },
