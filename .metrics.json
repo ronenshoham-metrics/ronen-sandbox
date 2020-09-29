@@ -3,6 +3,7 @@
         "list": [
             {
                 "cpu": "1",
+                "memory" : "1",
                 "name": "waveform-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F waveform/scripts/build.f",
@@ -10,6 +11,7 @@
             },
             {
                 "cpu": "1",
+                "memory" : "1",
                 "name": "logfile-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F logfile/scripts/build.f",
@@ -17,6 +19,7 @@
             },
             {
                 "cpu": "1",
+                "memory" : "1",
                 "name": "codecoverage-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F codecoverage/scripts/build.f",
@@ -24,6 +27,7 @@
             },
             {
                 "cpu": "1",
+                "memory" : "1",
                 "name": "functionalcoverage-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F functionalcoverage/scripts/build.f",
@@ -39,6 +43,7 @@
             "tests": {
                 "resultsDir": "<rootDir>",
                 "cpu": "1",
+                "memory" : "1",
                 "logFile": "dsim.log",
                 "list": [
                     {
