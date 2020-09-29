@@ -2,28 +2,32 @@
     "builds": {
         "list": [
             {
-                "memory" : "0.75",
+                "cpu": "0.5",
+                "memory" : "1",
                 "name": "waveform-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F waveform/scripts/build.f",
                 "wavesCmd": "dsim -F waveform/scripts/build-debug.f"
             },
             {
-                "memory" : "0.75",
+                "cpu": "0.5",
+                "memory" : "1",
                 "name": "logfile-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F logfile/scripts/build.f",
                 "wavesCmd": "dsim -F logfile/scripts/build-debug.f"
             },
             {
-                "memory" : "0.75",
+                "cpu": "0.5",
+                "memory" : "1",
                 "name": "codecoverage-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F codecoverage/scripts/build.f",
                 "wavesCmd": "dsim -F codecoverage/scripts/build-debug.f"
             },
             {
-                "memory" : "0.75",
+                "cpu": "0.5",
+                "memory" : "1",
                 "name": "functionalcoverage-build",
                 "image": "dsim-toolchain:latest",
                 "cmd": "dsim -F functionalcoverage/scripts/build.f",
@@ -38,7 +42,8 @@
             "metricsPathReplacements" : [[ "", "" ]],
             "tests": {
                 "resultsDir": "<rootDir>",
-                "memory" : "0.75",
+                "cpu": "0.5",
+                "memory" : "1",
                 "logFile": "dsim.log",
                 "list": [
                     {
