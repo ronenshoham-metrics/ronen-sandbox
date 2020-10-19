@@ -39,7 +39,7 @@ getRegressionRunInfo = '/api/v1/projects/'+args.projectId+'/regressionRuns/'
 ## Start regression
 reqParams = {}
 reqParams['regressionName'] = args.regressionName
-reqParams['branch'] = str(os.environ['CI_COMMIT_REF_NAME'])
+reqParams['branch'] = str(os.environ['GITHUB_REF'])
 reqParams['withWaves'] = 'true'
 params = json.dumps(reqParams)
 
