@@ -1,5 +1,4 @@
 #!/bin/bash
-cd run
 if [ $ENV_NAME == 'waveform' ] 
 then
     dsim -F ../build/repo/waveform/scripts/build-debug.f
