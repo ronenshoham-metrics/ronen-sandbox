@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./metrics_ci_integration.py "base" "ronen.shoham-ronen-sandbox"
+      - run: ./metrics_ci_integration.py "base" "ronen.shoham-ronen-sandbox-github"
         env:
           METRICS_ACCESS_TOKEN: ${{ secrets.METRICS_ACCESS_TOKEN }}
         shell: bash
